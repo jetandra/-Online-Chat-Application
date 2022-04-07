@@ -45,7 +45,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         Users users = list.get(position);
-        Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.avatar).into(holder.image);
+        Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.avatarphoto).into(holder.image);
         holder.userName.setText(users.getUserName());
 
         FirebaseDatabase.getInstance().getReference().child("chats")

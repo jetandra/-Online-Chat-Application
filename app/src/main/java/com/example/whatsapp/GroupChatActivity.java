@@ -36,6 +36,7 @@ public class GroupChatActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(GroupChatActivity.this,MainActivity.class);
                startActivity(intent);
+               finish();
             }
         });
 
@@ -50,6 +51,9 @@ public class GroupChatActivity extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.chatRecyclerView.setLayoutManager(layoutManager);
+
+
+
 
         database.getReference().child("Group Chat")
                 .addValueEventListener(new ValueEventListener() {
@@ -84,10 +88,20 @@ public class GroupChatActivity extends AppCompatActivity {
                         .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        database.getReference().child("chats")
+                                .child(senderId)
+                                .push()
+                                .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                            }
+                        });
 
                     }
                 });
             }
         });
+
     }
 }

@@ -51,6 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SettingsActivity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
                         Users users = snapshot.getValue(Users.class);
                         Picasso.get()
                                .load(users.getProfilepic())
-                                .placeholder(R.drawable.avatar)
+                                .placeholder(R.drawable.avatarphoto)
                                 .into(binding.profileImage);
 
                         binding.etstatus.setText(users.getStatus());
