@@ -76,7 +76,7 @@
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
                 android:padding="5dp"
-                android:src="@drawable/avatar"
+                android:src="@drawable/avatarphoto"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
